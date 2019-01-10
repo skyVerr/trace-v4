@@ -14,6 +14,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { Camera } from "@ionic-native/camera/ngx";
 import { WebView } from "@ionic-native/ionic-webview/ngx";
 import { IonicStorageModule } from "@ionic/storage";
+import { GoogleMaps } from "@ionic-native/google-maps/ngx";
+
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { AuthGuard } from './auth.guard';
 import { SocketService } from "./services/socket.service";
@@ -41,7 +43,8 @@ import { SocketService } from "./services/socket.service";
     SocketService,
     AuthGuard,
     Camera,
-    WebView
+    WebView,
+    GoogleMaps
   ],
   bootstrap: [AppComponent]
 })
