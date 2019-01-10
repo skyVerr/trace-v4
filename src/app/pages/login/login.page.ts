@@ -35,6 +35,7 @@ export class LoginPage implements OnInit {
       localStorage.setItem('token',res['token']);
       this.menu.enable(true);
       this.socketService.setId(this.auth.getDecodeToken().user.user_id);
+      // this.socketService.socket.emit('setId',this.auth.getDecodeToken().user.user_id);
       this.navController.navigateForward('/home');
     } catch (error) {
       console.log(error);

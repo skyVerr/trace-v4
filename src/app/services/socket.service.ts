@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class SocketService {
 
-  private socket = io(Api.URL);
+  public socket = io(Api.URL);
 
   constructor(
     private auth: AuthenticationService
@@ -25,6 +25,9 @@ export class SocketService {
   }
   
   setId(id){
+    if(!this.socket.connected){
+      this.socket = io(Api.URL);
+    }
     this.socket.emit('setId',id);
   }
 
