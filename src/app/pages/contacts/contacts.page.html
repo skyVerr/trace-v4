@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Contacts
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="search"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content>
+      </ion-refresher-content>
+    </ion-refresher>
+    <ion-list #slidingList *ngIf="contacts?.length > 0;else noContact">
+      <app-contact-item *ngFor="let c of contacts" (onDelete)="onDelete()" [contact]="c"></app-contact-item>
+    </ion-list>
+    <ng-template #noContact>
+      <ion-title text-center>no contacts to show</ion-title>
+    </ng-template>
+</ion-content>

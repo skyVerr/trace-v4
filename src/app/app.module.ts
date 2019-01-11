@@ -15,6 +15,7 @@ import { Camera } from "@ionic-native/camera/ngx";
 import { WebView } from "@ionic-native/ionic-webview/ngx";
 import { IonicStorageModule } from "@ionic/storage";
 import { GoogleMaps } from "@ionic-native/google-maps/ngx";
+import { Geolocation } from "@ionic-native/geolocation/ngx"
 
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { AuthGuard } from './auth.guard';
@@ -44,7 +45,8 @@ import { SocketService } from "./services/socket.service";
     AuthGuard,
     Camera,
     WebView,
-    GoogleMaps
+    GoogleMaps,
+    Geolocation
   ],
   bootstrap: [AppComponent]
 })

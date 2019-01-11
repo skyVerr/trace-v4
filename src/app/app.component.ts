@@ -16,6 +16,11 @@ export class AppComponent {
       title: 'Home',
       url: '/home',
       icon: 'home'
+    },
+    {
+      title: 'Contacts',
+      url: '/contacts',
+      icon: 'contacts'
     }
   ];
 
