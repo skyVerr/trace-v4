@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Notifications
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content>
+    </ion-refresher-content>
+  </ion-refresher>
+  <ion-list *ngIf="notifications?.length > 0;else noNotifications">
+    <app-notification-item *ngFor="let n of notifications" [notification]="n" (refresh)="loadNotification()" ></app-notification-item>
+  </ion-list>
+  <ng-template #noNotifications>
+    <ion-title text-center><br>no notifications to show</ion-title>
+  </ng-template>
+</ion-content>

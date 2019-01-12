@@ -22,4 +22,8 @@ export class ContactService {
   deleteContact(contact: Contact){
     return this.http.request('delete',this.apiUrl,{body: contact});
   }
+
+  fetchContactByFriendId(friend_id: number):Observable<Contact>{
+    return this.http.get<Contact>(this.apiUrl+'?friend_id='+friend_id);
+  }
 }

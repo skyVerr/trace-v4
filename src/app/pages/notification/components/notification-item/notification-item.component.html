@@ -1,0 +1,12 @@
+<ion-item>
+  <ion-label text-wrap>
+    <ion-text>
+      <h3 *ngIf="type">{{ type }}</h3>
+    </ion-text>
+    <p *ngIf="message">{{ message }}</p>
+  </ion-label>
+  <ion-buttons slot="end">
+    <ion-button (click)="accept()" slot="icon-only"><ion-icon name="checkmark"></ion-icon></ion-button>
+    <ion-button (click)="decline()" slot="icon-only"><ion-icon name="close"></ion-icon></ion-button>
+  </ion-buttons>
+</ion-item>

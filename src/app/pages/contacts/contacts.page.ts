@@ -1,6 +1,8 @@
 import { Component, OnInit, ChangeDetectorRef, ViewChild } from '@angular/core';
 import { ContactService } from 'src/app/services/contact.service';
 import { Contact } from 'src/app/models/contact.interface';
+import { ModalController } from '@ionic/angular';
+import { ContactSearchPage } from "./components/contact-search/contact-search.page";
 
 @Component({
   selector: 'app-contacts',
@@ -14,7 +16,8 @@ export class ContactsPage implements OnInit {
 
   constructor(
     private contactService: ContactService,
-    private changeDetectionRef: ChangeDetectorRef
+    private changeDetectionRef: ChangeDetectorRef,
+    private modalController: ModalController
   ) { }
 
   ngOnInit() {
@@ -44,6 +47,14 @@ export class ContactsPage implements OnInit {
     await this.slidingList.closeSlidingItems();
     await this.loadContacts();
     this.changeDetectionRef.detectChanges();
+  }
+
+  async gotoSearch(){
+    const searchModal = await this.modalController.create({
+      component: ContactSearchPage,
+      // componentProps: { value: 123 }
+    });
+    return await searchModal.present();
   }
 
 }

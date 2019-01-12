@@ -7,8 +7,8 @@
       Contacts
     </ion-title>
     <ion-buttons slot="end">
-      <ion-button>
-        <ion-icon slot="icon-only" name="search"></ion-icon>
+      <ion-button (click)="gotoSearch()">
+        <ion-icon slot="icon-only" name="add"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -22,6 +22,6 @@
       <app-contact-item *ngFor="let c of contacts" (onDelete)="onDelete()" [contact]="c"></app-contact-item>
     </ion-list>
     <ng-template #noContact>
-      <ion-title text-center>no contacts to show</ion-title>
+      <ion-title text-center><br> no contacts to show</ion-title>
     </ng-template>
 </ion-content>

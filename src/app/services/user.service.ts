@@ -16,4 +16,9 @@ export class UserService {
   getUserbyId(id):Observable<User>{
     return this.http.get<User>(this.apiUrl+id);
   }
+
+  searchUser(q):Observable<User[]>{
+    return this.http.get<User[]>(this.apiUrl+'?q='+q);
+  }
+
 }

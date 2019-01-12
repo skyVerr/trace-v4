@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="modalController.dismiss()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Search for other users</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-searchbar (ionChange)="onChange()" #searchBar></ion-searchbar>
+<ion-content padding>
+  <ion-list>
+      <app-contact-search-item *ngFor="let u of usersResult" [user]="u" ></app-contact-search-item>
+  </ion-list>
+</ion-content>
