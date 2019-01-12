@@ -28,4 +28,8 @@ export class NotificationPage implements OnInit {
       });
   }
 
+  doRefresh(){
+    this.loadNotification();
+  }
+
 }
