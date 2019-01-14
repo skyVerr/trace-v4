@@ -19,6 +19,10 @@ export class ContactService {
     return this.http.get<Contact[]>(this.apiUrl);
   }
 
+  fetchContactByUserId(user_id):Observable<Contact[]>{
+    return this.http.get<Contact[]>(`${Api.URL}users/${user_id}/contacts`);
+  }
+
   deleteContact(contact: Contact){
     return this.http.request('delete',this.apiUrl,{body: contact});
   }

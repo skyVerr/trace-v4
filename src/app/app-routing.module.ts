@@ -13,6 +13,8 @@ const routes: Routes = [
   { path: 'signup', loadChildren: './pages/signup/signup.module#SignupPageModule' },
   { path: 'contacts', loadChildren: './pages/contacts/contacts.module#ContactsPageModule', canActivate: [AuthGuard] },
   { path: 'notification', loadChildren: './pages/notification/notification.module#NotificationPageModule' },
+  { path: 'groups', loadChildren: './pages/groups/groups.module#GroupsPageModule' },
+  { path: 'group-add', loadChildren: './pages/groups/components/group-add/group-add.module#GroupAddPageModule' },
 ];
 
 @NgModule({

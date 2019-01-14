@@ -23,6 +23,11 @@ export class AppComponent {
       icon: 'contacts'
     },
     {
+      title: 'Groups',
+      url: '/groups',
+      icon: 'people'
+    },
+    {
       title: 'Notifications',
       url: '/notification',
       icon: 'notifications'

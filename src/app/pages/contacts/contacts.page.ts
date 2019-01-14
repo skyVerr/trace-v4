@@ -3,6 +3,7 @@ import { ContactService } from 'src/app/services/contact.service';
 import { Contact } from 'src/app/models/contact.interface';
 import { ModalController } from '@ionic/angular';
 import { ContactSearchPage } from "./components/contact-search/contact-search.page";
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-contacts',
@@ -17,7 +18,8 @@ export class ContactsPage implements OnInit {
   constructor(
     private contactService: ContactService,
     private changeDetectionRef: ChangeDetectorRef,
-    private modalController: ModalController
+    private modalController: ModalController,
+    private auth: AuthenticationService
   ) { }
 
   ngOnInit() {
@@ -36,7 +38,10 @@ export class ContactsPage implements OnInit {
   
   async loadContacts(){
     try {
-      this.contacts = await this.contactService.fetchContact().toPromise();
+      this.contacts = await this.contactService
+        .fetchContactByUserId(this.auth.getDecodeToken().user.user_id)
+        .toPromise();
+        
       return Promise.resolve();
     } catch (error) {
       console.error(error);
