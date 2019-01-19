@@ -7,7 +7,7 @@
       Groups
     </ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="gotoCreateGroupPage()">
+      <ion-button (click)="presentCreatePrompt()">
         <ion-icon slot="icon-only" name="add"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -15,5 +15,14 @@
 </ion-header>
 
 <ion-content padding>
-
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content>
+    </ion-refresher-content>
+  </ion-refresher>
+  <ion-list *ngIf="!!groups?.length; else noGroups">
+    <app-group-item *ngFor="let g of groups" [groupId]="g.group_id"></app-group-item>
+  </ion-list>
+  <ng-template #noGroups>
+    <ion-title text-center><br>no groups to show</ion-title>
+  </ng-template>
 </ion-content>

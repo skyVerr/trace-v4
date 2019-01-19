@@ -28,8 +28,13 @@ export class NotificationPage implements OnInit {
       });
   }
 
-  doRefresh(){
-    this.loadNotification();
+  doRefresh(event){
+    this.notificationService.fetchNotifications()
+      .subscribe(notifications => {
+        this.notifications = notifications;
+        this.changeDetectorRef.detectChanges();
+        event.target.complete();
+      });
   }
 
 }

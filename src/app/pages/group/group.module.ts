@@ -5,12 +5,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { GroupAddPage } from './group-add.page';
+import { GroupPage } from './group.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: GroupAddPage
+    component: GroupPage
   }
 ];
 
@@ -21,6 +21,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [GroupAddPage]
+  declarations: [GroupPage]
 })
-export class GroupAddPageModule {}
+export class GroupPageModule {}
