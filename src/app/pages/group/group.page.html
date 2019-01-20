@@ -7,9 +7,15 @@
       {{ group?.name }}
     </ion-title>
     <ion-buttons slot="end">
-      <ion-button>
+      <ion-button (click)="gotoAddMember()">
         <ion-icon slot="icon-only" name="add"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <app-member-item *ngFor="let m of members" [userId]="m.user_id"></app-member-item>
+  </ion-list>
+</ion-content>

@@ -5,25 +5,22 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { GroupPage } from './group.page';
-import { MemberItemComponent } from './components/member-item/member-item.component';
-import { MemberAddPage } from './components/member-add/member-add.page';
+import { MemberAddPage } from './member-add.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: GroupPage
+    component: MemberAddPage
   }
 ];
 
 @NgModule({
-  entryComponents: [MemberAddPage],
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [GroupPage, MemberItemComponent, MemberAddPage]
+  declarations: [MemberAddPage]
 })
-export class GroupPageModule {}
+export class MemberAddPageModule {}
